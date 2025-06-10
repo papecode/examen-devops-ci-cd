@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0 
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME} 
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3306:3306"
+    networks:
+      - myappNetwork
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:  # Ajout d'un healthcheck
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+
+  springboot-app:
+    image: papesaliouwade/pipe_spring-app:${APP_VERSION:-latest}
+    ports:
+      - "8082:8082"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USER}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - myappNetwork
+    restart: unless-stopped
+
+  angular-app:
+    image: ${DOCKER_REGISTRY:-papesaliouwade}/angularfront:${FRONTEND_VERSION:-latest}
+    ports:
+      - "80:4200"  
+    depends_on:
+      - springboot-app
+    networks:
+      - myappNetwork
+    restart: unless-stopped
+
+networks:
+  myappNetwork:
+    driver: bridge
+
+volumes:
+  mysql-data:
