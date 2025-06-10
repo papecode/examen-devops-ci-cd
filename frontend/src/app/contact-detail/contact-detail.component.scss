@@ -1,0 +1,249 @@
+.detail-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #1976d2;
+  color: white;
+
+  .back-button {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin-right: 20px;
+    background-color: white;
+    color: #1976d2;
+    padding: 6px 12px;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #e3f2fd;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 22px;
+  }
+}
+
+.detail-card {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  text-align: center;
+
+  img {
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    margin: 10px 0 5px;
+    font-size: 24px;
+  }
+
+  .position {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 15px;
+    margin: 6px 0;
+  }
+
+  a {
+    color: #1976d2;
+    text-decoration: none;
+  }
+}
+
+.not-found {
+  text-align: center;
+  margin-top: 50px;
+  color: #999;
+}
+.detail-header {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  background-color: #1976d2;
+  color: white;
+  justify-content: center;
+  gap: 2rem;
+
+  .back-button {
+    color: #1976d2;
+    background-color: white;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: #e3f2fd;
+    }
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+}
+
+.detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 3rem auto;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+
+  .profile-img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.vertical-divider {
+  width: 4px;
+  background-color: #1976d2;
+  height: auto;
+  min-height: 250px;
+  align-self: stretch;
+  border-radius: 2px;
+}
+
+.right-section {
+  flex: 2;
+  font-size: 1.5rem;
+
+  p {
+    margin: 1.2rem 0;
+  }
+
+  a {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.actions-centered {
+  display: flex;
+  justify-content: center;
+  gap:10rem;
+  margin: 4rem auto;
+
+  .btn-action {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 1.2rem 3rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-edit {
+    background: linear-gradient(to right, #42a5f5, #1976d2);
+    color: white;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(33, 150, 243, 0.6);
+    }
+  }
+
+  .btn-delete {
+    background: linear-gradient(to right, #ef5350, #c62828);
+    color: white;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(239, 83, 80, 0.6);
+    }
+  }
+}
+
+.not-found {
+  text-align: center;
+  font-size: 2rem;
+  color: #999;
+  margin-top: 5rem;
+}
+.detail-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1.6rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 2rem;
+}
+
+.label {
+  width: 160px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.value {
+  flex: 1;
+  text-align: left;
+  word-break: break-word;
+}
+
+.value a {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+.value a:hover {
+  text-decoration: underline;
+}
+.actions-centered .btn-action i.material-icons {
+  margin-right: 8px;
+  font-size: 1.6em;
+  vertical-align: middle;
+}

@@ -1,0 +1,319 @@
+.main {
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.angular-logo {
+  width: 120px;
+}
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-blur: 20px;
+  --primary-color: #6f42c1;
+  --pulse-color: rgba(111, 66, 193, 0.5);
+}
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.main::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  z-index: 0;
+}
+
+.main > div {
+  z-index: 1;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  transition: all 0.3s ease-in-out;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.angular-logo {
+  width: 100px;
+  animation: rotateLogo 10s infinite linear;
+}
+
+h1, p {
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, var(--pulse-color), transparent 70%);
+  animation: pulse 2s infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  border-radius: 50%;
+}
+
+.btn-primary span,
+.btn-primary i {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+}
+
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animated-btn {
+  position: relative;
+  overflow: hidden;
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.animated-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.animated-btn:hover::before {
+  left: 100%;
+}
+
+.animated-btn:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.animated-btn i {
+  animation: icon-bounce 1.5s infinite;
+}
+
+@keyframes icon-bounce {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+.animated-btn {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+body, .main {
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.background-bubbles {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.background-bubbles li {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  animation: floatBubbles 20s linear infinite;
+  bottom: -150px;
+  border-radius: 50%;
+}
+
+.background-bubbles li:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+.background-bubbles li:nth-child(2) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+}
+.background-bubbles li:nth-child(3) {
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+.background-bubbles li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+}
+.background-bubbles li:nth-child(5) {
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+@keyframes floatBubbles {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1000px) scale(0.5);
+    opacity: 0;
+  }
+}
+.main {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #e0f7fa, #e1bee7, #f8bbd0, #d1c4e9);
+  background-size: 100% 300%;
+  animation: waterfallFlow 20s ease-in-out infinite;
+}
+
+@keyframes waterfallFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+.main::after {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: 0;
+  width: 100%;
+  height: 160%;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  animation: mistMove 60s linear infinite;
+  z-index: 0;
+}
+@keyframes mistMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100px);
+  }
+}
+.main > div {
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 3rem;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 1.5s ease-out;
+}

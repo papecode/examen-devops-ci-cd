@@ -1,0 +1,35 @@
+<header class="app-header">
+  <h1>Gestion des Contacts</h1>
+</header>
+
+<div class="controls-container">
+  <input
+    type="text"
+    placeholder="Rechercher....."
+    [(ngModel)]="searchTerm"
+    class="search-input"
+  />
+
+
+
+  <button *ngIf="selectedIds.length > 0" class="delete-btn" (click)="deleteSelected()">
+    🗑️ Supprimer {{ selectedIds.length }} sélectionné(s)
+  </button>
+</div>
+
+<div class="profiles">
+  <div
+    class="profile-card"
+    *ngFor="let contact of sortedContacts"
+    [class.selected]="isSelected(contact.id)"
+    (click)="toggleSelect(contact.id)"
+  >
+    <div class="badge" *ngIf="isSelected(contact.id)">✔</div>
+
+    <img [src]="contact.imageUrl" alt="{{ contact.name }}" />
+    <h2>{{ contact.name }}</h2>
+    <p>{{ contact.position }}</p>
+
+
+  </div>
+</div>

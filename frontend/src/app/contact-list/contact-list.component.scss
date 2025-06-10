@@ -1,0 +1,145 @@
+.app-header {
+  background-color: #1976d2;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.controls-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  gap: 15px;
+}
+
+.search-input {
+  padding: 8px 16px;
+  font-size: 14px;
+  width: 400px;
+  border: none;
+  border-radius: 30px; // arrondi plus prononcé
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); // ombre douce
+  transition: box-shadow 0.3s ease;
+  outline: none;
+}
+
+.search-input:focus {
+  box-shadow: 0 4px 20px rgba(25, 118, 210, 0.3); // ombre bleutée au focus
+}
+
+.sort-buttons button,
+.delete-btn {
+  padding: 0.5rem 1rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sort-buttons {
+  display: flex;
+  gap: 10px; // ✅ espace horizontal entre les deux boutons
+  margin-top: 10px;
+
+  button {
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+
+
+.sort-buttons button:hover,
+.delete-btn:hover {
+  background-color: #145ca1;
+}
+
+.profiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #fafafa;
+}
+
+.profile-card {
+  width: 300px;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.2s ease;
+  background-color: white;
+  cursor: pointer;
+}
+
+.profile-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card.selected {
+  border: 2px solid #4caf50;
+  background-color: #e8f5e9;
+}
+
+.profile-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.profile-card h2 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.profile-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0.2rem 0;
+}
+
+.added-date {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.4rem;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 8px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-profile {
+  display: inline-block;
+  margin-top: 0.6rem;
+  background-color: #1976d2;
+  color: white;
+  padding: 0.4rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-profile:hover {
+  background-color: #125ca1;
+}
