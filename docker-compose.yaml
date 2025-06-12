@@ -7,7 +7,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       MYSQL_DATABASE: ${DB_NAME}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_ROOT_PASSWORD}
     ports:
       - "3306:3306"
     networks:
@@ -30,7 +30,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${DB_NAME}
       SPRING_DATASOURCE_USERNAME: ${DB_USER}
-      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      SPRING_DATASOURCE_PASSWORD: ${DB_ROOT_PASSWORD}
     networks:
       - myappNetwork
     restart: unless-stopped
@@ -38,7 +38,7 @@ services:
   angular-app:
     image: ${DOCKER_REGISTRY:-papesaliouwade}/angularfront:${FRONTEND_VERSION:-latest}
     ports:
-      - "80:4200"  
+      - "80:4200"
     depends_on:
       - springboot-app
     networks:
