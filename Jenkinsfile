@@ -44,7 +44,7 @@ pipeline {
         stage('Build Backend') {
             steps {
                 dir('backend') {
-                    sh 'mvn clean package -DskipTests'
+					sh './mvnw clean package'
                     archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
                 }
             }
@@ -127,7 +127,7 @@ pipeline {
                     }
 
                     // Vérification que les services sont up
-                    sh 'sleep 30' // Attente pour que les services démarrent
+                    sh 'sleep 30'
                     sh 'docker ps'
                     sh 'curl -I http://localhost:8082/actuator/health'
                 }
