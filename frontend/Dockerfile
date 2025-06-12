@@ -1,9 +1,13 @@
-FROM node:18.20.8
-RUN npm install -g @angular/cli
+# Étape de build
+FROM node:18.20.8 as builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN ng build --configuration=production
-EXPOSE 4200
-CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "4200"]
+RUN npm run build --configuration=production
+
+# Étape de production
+FROM nginx:alpine
+COPY --from=builder /app/dist/your-app-name /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
