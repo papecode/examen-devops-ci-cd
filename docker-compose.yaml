@@ -7,7 +7,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       MYSQL_DATABASE: ${DB_NAME} 
-      MYSQL_USER: ${DB_USER}
+      MYSQL_USER: devuser
       MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
       - "3306:3306"
@@ -16,7 +16,7 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
     healthcheck:  # Ajout d'un healthcheck
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD", "mysqladmin", "ping", "-uroot", "-p${MYSQL_ROOT_PASSWORD}"]
       interval: 5s
       timeout: 10s
       retries: 10
