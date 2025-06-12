@@ -44,6 +44,7 @@ pipeline {
         stage('Build Backend') {
             steps {
                 dir('backend') {
+					sh 'chmod +x mvnw' // C'est pour éviter des problèmes d'autorisation
 					sh './mvnw clean package'
                     archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
                 }
