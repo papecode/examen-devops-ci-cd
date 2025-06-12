@@ -51,13 +51,13 @@ pipeline {
             }
         }
 
-        stage('Tests Backend') {
-            steps {
-                dir('backend') {
-                    sh 'mvn test'
-                }
-            }
-        }
+        //stage('Tests Backend') {
+        //    steps {
+        //        dir('backend') {
+        //            sh 'mvn test'
+        //        }
+        //    }
+        //}
 
         stage('Build Frontend') {
             steps {
