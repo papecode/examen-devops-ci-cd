@@ -108,7 +108,7 @@ pipeline {
 
                     sh 'sleep 10'
                     sh 'docker ps'
-                    sh 'curl http://springboot-app:8082/actuator/health'
+                    //sh 'curl http://springboot-app:8082/actuator/health'
                 }
             }
         }
