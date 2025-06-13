@@ -38,7 +38,7 @@ services:
   angular-app:
     image: ${DOCKER_REGISTRY:-papesaliouwade}/angularfront:${FRONTEND_VERSION:-latest}
     ports:
-      - "80:4200"
+      - "4200:4200"
     depends_on:
       - springboot-app
     networks:
