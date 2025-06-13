@@ -117,7 +117,6 @@ pipeline {
             steps {
                 script {
                     echo "Exécution des tests de bout en bout..."
-                    // Ajoute ici tes commandes de test E2E (par ex. Cypress)
                 }
             }
         }
@@ -142,11 +141,11 @@ pipeline {
                 mimeType: 'text/html'
             )
         }
-        always {
-            junit '**/target/surefire-reports/*.xml'
-            junit 'frontend/test-results/**/*.xml'
-            archiveArtifacts artifacts: '**/target/*.jar,frontend/dist/**/*'
-            cleanWs()
-        }
+        //always {
+        //    junit '**/target/surefire-reports/*.xml'
+        //    junit 'frontend/test-results/**/*.xml'
+        //    archiveArtifacts artifacts: '**/target/*.jar,frontend/dist/**/*'
+        //    cleanWs()
+        //}
     }
 }
