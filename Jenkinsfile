@@ -106,9 +106,9 @@ pipeline {
                         sh 'docker-compose up -d'
                     }
 
-                    sh 'sleep 30'
+                    sh 'sleep 10'
                     sh 'docker ps'
-                    sh 'curl -I http://localhost:8082/actuator/health'
+                    sh 'curl http://springboot-app:8082/actuator/health'
                 }
             }
         }
